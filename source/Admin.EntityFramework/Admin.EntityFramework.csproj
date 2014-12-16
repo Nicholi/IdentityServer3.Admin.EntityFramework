@@ -77,18 +77,22 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Thinktecture.IdentityServer">
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.1.0.0-beta4\lib\net45\Thinktecture.IdentityServer.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.1.0.0-pre-87\lib\net45\Thinktecture.IdentityServer.dll</HintPath>
     </Reference>
-    <Reference Include="Thinktecture.IdentityServer.Core.EntityFramework">
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.EntityFramework.1.0.0-beta4\lib\net45\Thinktecture.IdentityServer.Core.EntityFramework.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityServer.Core.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.EntityFramework.1.0.0-pre-9\lib\net45\Thinktecture.IdentityServer.Core.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Thinktecture.IdentityServer.v3.Admin.WebApi">
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.Admin.WebApi.1.0.0-pre-1004\lib\net45\Thinktecture.IdentityServer.v3.Admin.WebApi.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityServer.v3.Admin.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.Admin.WebApi.1.0.0-pre-1005\lib\net45\Thinktecture.IdentityServer.v3.Admin.WebApi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminEntityFrameworkStorageRegistrations.cs" />
+    <Compile Include="Extensions\IQueryableExtensions.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScopePersistence.cs" />

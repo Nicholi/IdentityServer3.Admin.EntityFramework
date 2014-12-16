@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using Thinktecture.IdentityServer.Core.EntityFramework;
+using Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.IdentityServer;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
@@ -19,7 +20,26 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public PageResult<Scope> List(PagingInformation pagingInformation)
         {
-            throw new NotImplementedException();
+            using (var context = new ConfigurationDbContext(_connectionString))
+            {
+                var scopesQuery = (IQueryable<Core.EntityFramework.Entities.Scope>) context.Scopes
+                    .AsNoTracking();
+
+                if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
+                {
+                    scopesQuery = scopesQuery.Where(s => s.DisplayName.Contains(pagingInformation.SearchTerm));
+                }
+
+                scopesQuery = scopesQuery.OrderBy(pagingInformation.SortColumns);
+
+                var result = new PageResult<Scope>()
+                {
+                    Items = scopesQuery.ApplySkipTake(pagingInformation).ToList().Select(i => i.ToModel()),
+                    TotalCount = scopesQuery.Count(),
+                };
+
+                return result;
+            }
         }
 
         public Scope Get(int key)
