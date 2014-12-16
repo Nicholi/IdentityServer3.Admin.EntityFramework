@@ -87,11 +87,12 @@
     </Reference>
     <Reference Include="Thinktecture.IdentityServer.v3.Admin.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.Admin.WebApi.1.0.0-pre-1005\lib\net45\Thinktecture.IdentityServer.v3.Admin.WebApi.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.Admin.WebApi.1.0.0-pre-1007\lib\net45\Thinktecture.IdentityServer.v3.Admin.WebApi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminEntityFrameworkStorageRegistrations.cs" />
+    <Compile Include="ClientPersistence.cs" />
     <Compile Include="Extensions\IQueryableExtensions.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

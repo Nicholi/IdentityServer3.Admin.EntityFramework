@@ -9,46 +9,46 @@ using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
 
 namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 {
-    public class ScopePersistence : IPersistence<Scope>
+    public class ClientPersistence : IPersistence<Client>
     {
         private readonly string _connectionString;
 
-        public ScopePersistence(string connectionString)
+        public ClientPersistence(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public PageResult<Scope> List(PagingInformation pagingInformation)
+        public PageResult<Client> List(PagingInformation pagingInformation)
         {
             using (var context = new ConfigurationDbContext(_connectionString))
             {
-                var scopesQuery = (IQueryable<Core.EntityFramework.Entities.Scope>) context.Scopes
+                var clientQuery = (IQueryable<Core.EntityFramework.Entities.Client>) context.Clients
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
                 {
-                    scopesQuery = scopesQuery.Where(s => s.DisplayName.Contains(pagingInformation.SearchTerm));
+                    clientQuery = clientQuery.Where(s => s.ClientName.Contains(pagingInformation.SearchTerm));
                 }
 
-                scopesQuery = scopesQuery.OrderBy(pagingInformation.SortColumns);
+                clientQuery = clientQuery.OrderBy(pagingInformation.SortColumns);
 
-                var result = new PageResult<Scope>()
+                var result = new PageResult<Client>()
                 {
-                    Items = scopesQuery.ApplySkipTake(pagingInformation).ToList().Select(i => i.ToModel()),
-                    TotalCount = scopesQuery.Count(),
+                    Items = clientQuery.ApplySkipTake(pagingInformation).ToList().Select(i => i.ToModel()),
+                    TotalCount = clientQuery.Count(),
                 };
 
                 return result;
             }
         }
 
-        public Scope Get(int key)
+        public Client Get(int key)
         {
             using (var context = new ConfigurationDbContext(_connectionString))
             {
-                var scope = context.Scopes.FirstOrDefault(i => i.Id == key);
+                var client = context.Clients.FirstOrDefault(i => i.Id == key);
 
-                return scope.ToModel();
+                return client.ToModel();
             }
         }
 
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
         {
             using (var context = new ConfigurationDbContext(_connectionString))
             {
-                context.Scopes.Remove(new Core.EntityFramework.Entities.Scope()
+                context.Clients.Remove(new Core.EntityFramework.Entities.Client()
                 {
                     Id = key
                 });
@@ -65,27 +65,27 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             }
         }
 
-        public void Add(Scope entity)
+        public void Add(Client entity)
         {
             using (var context = new ConfigurationDbContext(_connectionString))
             {
-                var scope = entity.ToEntity();
-                context.Scopes.Add(scope);
+                var client = entity.ToEntity();
+                context.Clients.Add(client);
 
                 context.SaveChanges();
             }
         }
 
-        public void Update(Scope entity)
+        public void Update(Client entity)
         {
             using (var context = new ConfigurationDbContext(_connectionString))
             {
-                var scope = entity.ToEntity();
+                var client = entity.ToEntity();
 
-                if (context.Entry(scope).State == EntityState.Detached)
+                if (context.Entry(client).State == EntityState.Detached)
                 {
-                    context.Scopes.Attach(scope);
-                    context.Entry(scope).State = EntityState.Modified;
+                    context.Clients.Attach(client);
+                    context.Entry(client).State = EntityState.Modified;
                 }
 
                 context.SaveChanges();
