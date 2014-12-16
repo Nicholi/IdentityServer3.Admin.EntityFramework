@@ -17,7 +17,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions
         {
             if (sortColumns == null || !sortColumns.Any())
             {
-                return (IOrderedQueryable<T>) source;
+                return OrderBy(source, "Id", SortDirection.Ascending);
             }
 
             var orderedQuery = OrderBy(source, sortColumns[0].Name, sortColumns[0].SortDirection);
