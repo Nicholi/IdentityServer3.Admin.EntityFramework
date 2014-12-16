@@ -13,7 +13,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             _connectionString = connectionString;
         }
 
-        public override Registration<IPersistence<Scope>> ScopeStore
+        public override Registration<IPersistence<Scope>> ScopePersistence
         {
             get { return Registration.RegisterSingleton<IPersistence<Scope>>(new ScopePersistence(_connectionString)); }
         }
