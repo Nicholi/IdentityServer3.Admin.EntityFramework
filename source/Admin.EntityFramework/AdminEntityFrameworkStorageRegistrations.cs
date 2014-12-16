@@ -1,6 +1,6 @@
 ﻿using Thinktecture.IdentityServer.Core.Configuration;
-using Thinktecture.IdentityServer.v3.Admin.Storage;
-using Thinktecture.IdentityServer.v3.Admin.Storage.Models.IdentityServer;
+using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.IdentityServer;
+using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
 
 namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 {

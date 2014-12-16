@@ -2,9 +2,9 @@
 using System.Data.Entity;
 using System.Linq;
 using Thinktecture.IdentityServer.Core.EntityFramework;
-using Thinktecture.IdentityServer.v3.Admin.Storage;
-using Thinktecture.IdentityServer.v3.Admin.Storage.Models.IdentityServer;
-using Thinktecture.IdentityServer.v3.Admin.Storage.Models.Persistence;
+using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.IdentityServer;
+using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
+using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
 
 namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 {

@@ -7,16 +7,16 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
     {
         static Map()
         {
-            Mapper.CreateMap<Scope, Storage.Models.IdentityServer.Scope>(MemberList.Destination);
-            Mapper.CreateMap<ScopeClaim, Storage.Models.IdentityServer.ScopeClaim>(MemberList.Destination);
+            Mapper.CreateMap<Scope, WebApi.Models.IdentityServer.Scope>(MemberList.Destination);
+            Mapper.CreateMap<ScopeClaim, WebApi.Models.IdentityServer.ScopeClaim>(MemberList.Destination);
         }
 
-        public static Storage.Models.IdentityServer.Scope ToModel(this Scope scope)
+        public static WebApi.Models.IdentityServer.Scope ToModel(this Scope scope)
         {
-            return Mapper.Map<Storage.Models.IdentityServer.Scope>(scope);
+            return Mapper.Map<WebApi.Models.IdentityServer.Scope>(scope);
         }
 
-        public static Scope ToEntity(this Storage.Models.IdentityServer.Scope scope)
+        public static Scope ToEntity(this WebApi.Models.IdentityServer.Scope scope)
         {
             return Mapper.Map<Scope>(scope);
         }
