@@ -14,6 +14,14 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             Mapper.CreateMap<ClientScopeRestriction, WebApi.Models.Storage.ClientScopeRestriction>(MemberList.Destination);
             Mapper.CreateMap<PostLogoutRedirectUri, WebApi.Models.Storage.PostLogoutRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<IdentityProviderRestriction, WebApi.Models.Storage.IdentityProviderRestriction>(MemberList.Destination);
+
+            Mapper.CreateMap<WebApi.Models.Storage.Scope, Scope>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ScopeClaim, ScopeClaim>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.Client, Client>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ClientRedirectUri, ClientRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.PostLogoutRedirectUri, PostLogoutRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.IdentityProviderRestriction, IdentityProviderRestriction>(MemberList.Destination);
         }
 
         public static WebApi.Models.Storage.Scope ToModel(this Scope scope)
