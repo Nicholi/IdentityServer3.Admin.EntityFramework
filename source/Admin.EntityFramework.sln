@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{69FB75
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.EntityFramework.Tests", "Admin.EntityFramework.Tests\Admin.EntityFramework.Tests.csproj", "{F3B60735-BEDA-45C1-BABF-EFBE0DFF5884}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.EntityFramework.Host", "Admin.EntityFramework.Host\Admin.EntityFramework.Host.csproj", "{BFBE8033-DA70-49D3-8759-445D6BBED5DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{F3B60735-BEDA-45C1-BABF-EFBE0DFF5884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3B60735-BEDA-45C1-BABF-EFBE0DFF5884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3B60735-BEDA-45C1-BABF-EFBE0DFF5884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBE8033-DA70-49D3-8759-445D6BBED5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBE8033-DA70-49D3-8759-445D6BBED5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBE8033-DA70-49D3-8759-445D6BBED5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBE8033-DA70-49D3-8759-445D6BBED5DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
