@@ -47,8 +47,12 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -90,15 +94,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="Thinktecture.IdentityServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.1.0.0-pre-10009\lib\net45\Thinktecture.IdentityServer.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.1.0.0-pre-87\lib\net45\Thinktecture.IdentityServer.dll</HintPath>
     </Reference>
     <Reference Include="Thinktecture.IdentityServer.Core.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.EntityFramework.1.0.0-pre-10003\lib\net45\Thinktecture.IdentityServer.Core.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.EntityFramework.1.0.0-pre-9\lib\net45\Thinktecture.IdentityServer.Core.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Thinktecture.IdentityServer.v3.Admin.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.Admin.1.0.0-pre-1013\lib\net45\Thinktecture.IdentityServer.v3.Admin.WebApi.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.Admin.1.0.0-pre-1014\lib\net45\Thinktecture.IdentityServer.v3.Admin.WebApi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
