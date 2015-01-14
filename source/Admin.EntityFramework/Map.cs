@@ -12,16 +12,16 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             Mapper.CreateMap<Client, WebApi.Models.Storage.Client>(MemberList.Destination);
             Mapper.CreateMap<ClientRedirectUri, WebApi.Models.Storage.ClientRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<ClientScopeRestriction, WebApi.Models.Storage.ClientScopeRestriction>(MemberList.Destination);
-            Mapper.CreateMap<PostLogoutRedirectUri, WebApi.Models.Storage.PostLogoutRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<IdentityProviderRestriction, WebApi.Models.Storage.IdentityProviderRestriction>(MemberList.Destination);
+            Mapper.CreateMap<ClientPostLogoutRedirectUri, WebApi.Models.Storage.ClientPostLogoutRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<ClientIdPRestriction, WebApi.Models.Storage.ClientIdPRestriction>(MemberList.Destination);
 
             Mapper.CreateMap<WebApi.Models.Storage.Scope, Scope>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.ScopeClaim, ScopeClaim>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.Client, Client>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.ClientRedirectUri, ClientRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
-            Mapper.CreateMap<WebApi.Models.Storage.PostLogoutRedirectUri, PostLogoutRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<WebApi.Models.Storage.IdentityProviderRestriction, IdentityProviderRestriction>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ClientPostLogoutRedirectUri, ClientPostLogoutRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ClientIdPRestriction, ClientIdPRestriction>(MemberList.Destination);
         }
 
         public static WebApi.Models.Storage.Scope ToModel(this Scope scope)
@@ -54,24 +54,24 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             return Mapper.Map<ClientRedirectUri>(clientRedirectUri);
         }
 
-        public static WebApi.Models.Storage.PostLogoutRedirectUri ToModel(this PostLogoutRedirectUri postLogoutRedirectUri)
+        public static WebApi.Models.Storage.ClientPostLogoutRedirectUri ToModel(this ClientPostLogoutRedirectUri postLogoutRedirectUri)
         {
-            return Mapper.Map<WebApi.Models.Storage.PostLogoutRedirectUri>(postLogoutRedirectUri);
+            return Mapper.Map<WebApi.Models.Storage.ClientPostLogoutRedirectUri>(postLogoutRedirectUri);
         }
 
-        public static PostLogoutRedirectUri ToEntity(this WebApi.Models.Storage.PostLogoutRedirectUri postLogoutRedirectUri)
+        public static ClientPostLogoutRedirectUri ToEntity(this WebApi.Models.Storage.ClientPostLogoutRedirectUri postLogoutRedirectUri)
         {
-            return Mapper.Map<PostLogoutRedirectUri>(postLogoutRedirectUri);
+            return Mapper.Map<ClientPostLogoutRedirectUri>(postLogoutRedirectUri);
         }
 
-        public static WebApi.Models.Storage.IdentityProviderRestriction ToModel(this IdentityProviderRestriction identityProviderRestriction)
+        public static WebApi.Models.Storage.ClientIdPRestriction ToModel(this ClientIdPRestriction identityProviderRestriction)
         {
-            return Mapper.Map<WebApi.Models.Storage.IdentityProviderRestriction>(identityProviderRestriction);
+            return Mapper.Map<WebApi.Models.Storage.ClientIdPRestriction>(identityProviderRestriction);
         }
 
-        public static IdentityProviderRestriction ToEntity(this WebApi.Models.Storage.IdentityProviderRestriction identityProviderRestriction)
+        public static ClientIdPRestriction ToEntity(this WebApi.Models.Storage.ClientIdPRestriction identityProviderRestriction)
         {
-            return Mapper.Map<IdentityProviderRestriction>(identityProviderRestriction);
+            return Mapper.Map<ClientIdPRestriction>(identityProviderRestriction);
         }
     }
 }

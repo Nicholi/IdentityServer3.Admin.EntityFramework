@@ -15,12 +15,12 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public override Registration<IPersistence<Scope>> ScopePersistence
         {
-            get { return Registration.RegisterSingleton<IPersistence<Scope>>(new ScopePersistence(_connectionString)); }
+            get { return new Registration<IPersistence<Scope>>(context => new ScopePersistence(_connectionString)); }
         }
 
         public override Registration<IPersistence<Client>> ClientPersistence
         {
-            get { return Registration.RegisterSingleton<IPersistence<Client>>(new ClientPersistence(_connectionString)); }
+            get { return new Registration<IPersistence<Client>>(context => new ClientPersistence(_connectionString)); }
         }
     }
 }

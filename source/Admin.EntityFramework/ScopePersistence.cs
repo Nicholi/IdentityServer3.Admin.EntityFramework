@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using RefactorThis.GraphDiff;
 using Thinktecture.IdentityServer.Core.EntityFramework;
 using Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
@@ -20,7 +21,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public PageResult<Scope> List(PagingInformation pagingInformation)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
                 var scopesQuery = (IQueryable<Core.EntityFramework.Entities.Scope>) context.Scopes
                     .AsNoTracking();
@@ -44,7 +45,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public Scope Get(int key)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
                 var scope = context.Scopes.FirstOrDefault(i => i.Id == key);
 
@@ -54,7 +55,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public void Delete(int key)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
                 context.Scopes.Remove(new Core.EntityFramework.Entities.Scope()
                 {
@@ -67,7 +68,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public void Add(Scope entity)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
                 var scope = entity.ToEntity();
                 context.Scopes.Add(scope);
@@ -78,15 +79,11 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public void Update(Scope entity)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
                 var scope = entity.ToEntity();
 
-                if (context.Entry(scope).State == EntityState.Detached)
-                {
-                    context.Scopes.Attach(scope);
-                    context.Entry(scope).State = EntityState.Modified;
-                }
+                context.UpdateGraph(scope, configuration => configuration.OwnedCollection(p => p.ScopeClaims));
 
                 context.SaveChanges();
             }

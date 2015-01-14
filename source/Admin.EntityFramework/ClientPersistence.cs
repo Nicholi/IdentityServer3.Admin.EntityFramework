@@ -20,7 +20,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public PageResult<Client> List(PagingInformation pagingInformation)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ClientConfigurationDbContext(_connectionString))
             {
                 var clientQuery = (IQueryable<Core.EntityFramework.Entities.Client>) context.Clients
                     .AsNoTracking();
@@ -44,7 +44,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public Client Get(int key)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ClientConfigurationDbContext(_connectionString))
             {
                 var client = context.Clients.FirstOrDefault(i => i.Id == key);
 
@@ -54,7 +54,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public void Delete(int key)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ClientConfigurationDbContext(_connectionString))
             {
                 context.Clients.Remove(new Core.EntityFramework.Entities.Client()
                 {
@@ -67,7 +67,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public void Add(Client entity)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ClientConfigurationDbContext(_connectionString))
             {
                 var client = entity.ToEntity();
                 context.Clients.Add(client);
@@ -78,7 +78,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
         public void Update(Client entity)
         {
-            using (var context = new ConfigurationDbContext(_connectionString))
+            using (var context = new ClientConfigurationDbContext(_connectionString))
             {
                 var client = entity.ToEntity();
 
