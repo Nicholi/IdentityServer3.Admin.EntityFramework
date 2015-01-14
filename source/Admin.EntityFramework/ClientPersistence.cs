@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using RefactorThis.GraphDiff;
 using Thinktecture.IdentityServer.Core.EntityFramework;
 using Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
@@ -82,11 +83,14 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             {
                 var client = entity.ToEntity();
 
-                if (context.Entry(client).State == EntityState.Detached)
-                {
-                    context.Clients.Attach(client);
-                    context.Entry(client).State = EntityState.Modified;
-                }
+                context.UpdateGraph(client, configuration => configuration
+                    .OwnedCollection(c => c.Claims)
+                    .OwnedCollection(c => c.ClientSecrets)
+                    .OwnedCollection(c => c.CustomGrantTypeRestrictions)
+                    .OwnedCollection(c => c.IdentityProviderRestrictions)
+                    .OwnedCollection(c => c.PostLogoutRedirectUris)
+                    .OwnedCollection(c => c.RedirectUris)
+                    .OwnedCollection(c => c.ScopeRestrictions));
 
                 context.SaveChanges();
             }
