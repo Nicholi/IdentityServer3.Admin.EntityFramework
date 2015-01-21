@@ -35,7 +35,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
 
                 var result = new PageResult<Client>()
                 {
-                    Items = clientQuery.ApplySkipTake(pagingInformation).ToList().Select(i => i.ToModel()),
+                    Items = clientQuery.ApplySkipTake(pagingInformation).ToList().Select(i => i.ToModel()).ToList(),
                     TotalCount = clientQuery.Count(),
                 };
 
