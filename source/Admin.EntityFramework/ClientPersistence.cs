@@ -90,7 +90,8 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
                     .OwnedCollection(c => c.IdentityProviderRestrictions)
                     .OwnedCollection(c => c.PostLogoutRedirectUris)
                     .OwnedCollection(c => c.RedirectUris)
-                    .OwnedCollection(c => c.ScopeRestrictions));
+                    .OwnedCollection(c => c.ScopeRestrictions)
+                    .OwnedCollection(c => c.CustomGrantTypeRestrictions));
 
                 context.SaveChanges();
             }
