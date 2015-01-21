@@ -14,6 +14,9 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             Mapper.CreateMap<ClientScopeRestriction, WebApi.Models.Storage.ClientScopeRestriction>(MemberList.Destination);
             Mapper.CreateMap<ClientPostLogoutRedirectUri, WebApi.Models.Storage.ClientPostLogoutRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<ClientIdPRestriction, WebApi.Models.Storage.ClientIdPRestriction>(MemberList.Destination);
+            Mapper.CreateMap<ClientGrantTypeRestriction, WebApi.Models.Storage.ClientGrantTypeRestriction>(
+                MemberList.Destination);
+            Mapper.CreateMap<ClientClaim, WebApi.Models.Storage.ClientClaim>(MemberList.Destination);
 
             Mapper.CreateMap<WebApi.Models.Storage.Scope, Scope>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.ScopeClaim, ScopeClaim>(MemberList.Destination);
@@ -22,6 +25,9 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
             Mapper.CreateMap<WebApi.Models.Storage.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.ClientPostLogoutRedirectUri, ClientPostLogoutRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<WebApi.Models.Storage.ClientIdPRestriction, ClientIdPRestriction>(MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ClientGrantTypeRestriction, ClientGrantTypeRestriction>(
+                MemberList.Destination);
+            Mapper.CreateMap<WebApi.Models.Storage.ClientClaim, ClientClaim>(MemberList.Destination);
         }
 
         public static WebApi.Models.Storage.Scope ToModel(this Scope scope)
@@ -72,6 +78,26 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
         public static ClientIdPRestriction ToEntity(this WebApi.Models.Storage.ClientIdPRestriction identityProviderRestriction)
         {
             return Mapper.Map<ClientIdPRestriction>(identityProviderRestriction);
+        }
+
+        public static WebApi.Models.Storage.ClientGrantTypeRestriction ToModel(this ClientGrantTypeRestriction clientGrantTypeRestriction)
+        {
+            return Mapper.Map<WebApi.Models.Storage.ClientGrantTypeRestriction>(clientGrantTypeRestriction);
+        }
+
+        public static ClientGrantTypeRestriction ToEntity(this WebApi.Models.Storage.ClientGrantTypeRestriction clientGrantTypeRestriction)
+        {
+            return Mapper.Map<ClientGrantTypeRestriction>(clientGrantTypeRestriction);
+        }
+
+        public static WebApi.Models.Storage.ClientClaim ToModel(this ClientClaim clientClaim)
+        {
+            return Mapper.Map<WebApi.Models.Storage.ClientClaim>(clientClaim);
+        }
+
+        public static ClientClaim ToEntity(this WebApi.Models.Storage.ClientClaim clientClaim)
+        {
+            return Mapper.Map<ClientClaim>(clientClaim);
         }
     }
 }
