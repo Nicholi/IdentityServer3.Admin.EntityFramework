@@ -48,7 +48,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions
                 return ApplyOrder(source, property, methodName);
             }
 
-            return ApplyOrder(source, property, methodName + "Decending");
+            return ApplyOrder(source, property, methodName + "Descending");
         }
         
         private static IOrderedQueryable<T> ApplyOrder<T>(IQueryable<T> source, string property, string methodName)
