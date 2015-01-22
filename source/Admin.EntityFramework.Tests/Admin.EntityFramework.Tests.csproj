@@ -93,9 +93,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Thinktecture.IdentityServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer.v3.1.0.0-pre-87\lib\net45\Thinktecture.IdentityServer.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityServer">
+      <HintPath>..\packages\Thinktecture.IdentityServer.v3.1.0.0-pre-10270\lib\net45\Thinktecture.IdentityServer.dll</HintPath>
     </Reference>
     <Reference Include="Thinktecture.IdentityServer.Core.EntityFramework">
       <HintPath>..\..\build\Thinktecture.IdentityServer.Core.EntityFramework.dll</HintPath>
