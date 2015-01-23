@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using RefactorThis.GraphDiff;
 using Thinktecture.IdentityServer.Core.EntityFramework;
-using Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
+using Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions;
 
-namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
+namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
     public class ScopePersistence : IPersistence<Scope>
     {
@@ -23,7 +22,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var scopesQuery = (IQueryable<Core.EntityFramework.Entities.Scope>) context.Scopes
+                var scopesQuery = (IQueryable<IdentityServer.Core.EntityFramework.Entities.Scope>) context.Scopes
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -57,7 +56,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                context.Scopes.Remove(new Core.EntityFramework.Entities.Scope()
+                context.Scopes.Remove(new IdentityServer.Core.EntityFramework.Entities.Scope()
                 {
                     Id = key
                 });

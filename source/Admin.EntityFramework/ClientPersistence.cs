@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using RefactorThis.GraphDiff;
 using Thinktecture.IdentityServer.Core.EntityFramework;
-using Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
+using Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions;
 
-namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
+namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
     public class ClientPersistence : IPersistence<Client>
     {
@@ -23,7 +22,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var clientQuery = (IQueryable<Core.EntityFramework.Entities.Client>) context.Clients
+                var clientQuery = (IQueryable<IdentityServer.Core.EntityFramework.Entities.Client>) context.Clients
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -57,7 +56,7 @@ namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                context.Clients.Remove(new Core.EntityFramework.Entities.Client()
+                context.Clients.Remove(new IdentityServer.Core.EntityFramework.Entities.Client()
                 {
                     Id = key
                 });

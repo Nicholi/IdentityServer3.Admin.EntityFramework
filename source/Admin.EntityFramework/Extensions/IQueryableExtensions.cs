@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Persistence;
 
-namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework.Extensions
+namespace Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions
 {
     public static class IQueryableExtensions
     {

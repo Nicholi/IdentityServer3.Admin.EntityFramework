@@ -2,7 +2,7 @@
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer.v3.Admin.WebApi.Storage;
 
-namespace Thinktecture.IdentityServer.v3.Admin.EntityFramework
+namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
     public class AdminEntityFrameworkStorageRegistrations : StorageRegistrations
     {
