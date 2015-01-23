@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using Thinktecture.IdentityServer.v3.Admin.WebApi.Models.Storage;
+using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer3.Admin.EntityFramework;
 using Xunit;
 
