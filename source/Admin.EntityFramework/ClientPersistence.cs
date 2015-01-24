@@ -56,10 +56,13 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                context.Clients.Remove(new IdentityServer.Core.EntityFramework.Entities.Client()
+                var entity = new IdentityServer.Core.EntityFramework.Entities.Client()
                 {
                     Id = key
-                });
+                };
+
+                context.Clients.Attach(entity);
+                context.Clients.Remove(entity);
 
                 context.SaveChanges();
             }

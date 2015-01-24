@@ -56,10 +56,13 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                context.Scopes.Remove(new IdentityServer.Core.EntityFramework.Entities.Scope()
+                var entity = new IdentityServer.Core.EntityFramework.Entities.Scope()
                 {
                     Id = key
-                });
+                };
+
+                context.Scopes.Attach(entity);
+                context.Scopes.Remove(entity);
 
                 context.SaveChanges();
             }
