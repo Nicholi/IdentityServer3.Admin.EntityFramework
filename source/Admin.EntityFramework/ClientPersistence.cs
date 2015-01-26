@@ -100,5 +100,15 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 context.SaveChanges();
             }
         }
+
+        public int TotalCount()
+        {
+            using (var context = new ClientConfigurationDbContext(_connectionString))
+            {
+                var count = context.Clients.Count();
+
+                return count;
+            }
+        }
     }
 }
