@@ -68,7 +68,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
             }
         }
 
-        public void Add(Client entity)
+        public object Add(Client entity)
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
@@ -76,6 +76,8 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 context.Clients.Add(client);
 
                 context.SaveChanges();
+
+                return client.Id;
             }
         }
 

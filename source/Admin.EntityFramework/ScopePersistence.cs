@@ -68,7 +68,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
             }
         }
 
-        public void Add(Scope entity)
+        public object Add(Scope entity)
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
@@ -76,6 +76,8 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 context.Scopes.Add(scope);
 
                 context.SaveChanges();
+
+                return scope.Id;
             }
         }
 
