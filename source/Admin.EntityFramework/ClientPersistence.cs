@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using RefactorThis.GraphDiff;
-using Thinktecture.IdentityServer.Core.EntityFramework;
+using Thinktecture.IdentityServer.EntityFramework;
 using Thinktecture.IdentityServer3.Admin.WebApi.Models.Persistence;
 using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer3.Admin.WebApi.Storage;
@@ -22,7 +22,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var clientQuery = (IQueryable<IdentityServer.Core.EntityFramework.Entities.Client>) context.Clients
+                var clientQuery = (IQueryable<IdentityServer.EntityFramework.Entities.Client>) context.Clients
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var entity = new IdentityServer.Core.EntityFramework.Entities.Client()
+                var entity = new IdentityServer.EntityFramework.Entities.Client()
                 {
                     Id = key
                 };

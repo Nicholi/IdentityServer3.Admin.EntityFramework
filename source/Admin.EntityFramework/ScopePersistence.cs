@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using RefactorThis.GraphDiff;
-using Thinktecture.IdentityServer.Core.EntityFramework;
+using Thinktecture.IdentityServer.EntityFramework;
 using Thinktecture.IdentityServer3.Admin.WebApi.Models.Persistence;
 using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer3.Admin.WebApi.Storage;
@@ -22,7 +22,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var scopesQuery = (IQueryable<IdentityServer.Core.EntityFramework.Entities.Scope>) context.Scopes
+                var scopesQuery = (IQueryable<IdentityServer.EntityFramework.Entities.Scope>) context.Scopes
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var entity = new IdentityServer.Core.EntityFramework.Entities.Scope()
+                var entity = new IdentityServer.EntityFramework.Entities.Scope()
                 {
                     Id = key
                 };
