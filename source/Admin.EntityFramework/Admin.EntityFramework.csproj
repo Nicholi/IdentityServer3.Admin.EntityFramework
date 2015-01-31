@@ -101,7 +101,7 @@
     </Reference>
     <Reference Include="Thinktecture.IdentityServer3.Admin.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer3.Admin.1.0.0-pre-1044\lib\net45\Thinktecture.IdentityServer3.Admin.WebApi.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer3.Admin.1.0.0-pre-1045\lib\net45\Thinktecture.IdentityServer3.Admin.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="Thinktecture.IdentityServer3.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
