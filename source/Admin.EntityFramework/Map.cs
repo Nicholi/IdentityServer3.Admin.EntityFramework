@@ -18,6 +18,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientClaim, ClientClaim>(MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientSecret, ClientSecret>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientCorsOrigin, ClientCorsOrigin>(MemberList.Destination);
 
             Mapper.CreateMap<Scope, IdentityServer.EntityFramework.Entities.Scope>(MemberList.Destination);
             Mapper.CreateMap<ScopeClaim, IdentityServer.EntityFramework.Entities.ScopeClaim>(MemberList.Destination);
@@ -30,6 +31,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 MemberList.Destination);
             Mapper.CreateMap<ClientClaim, IdentityServer.EntityFramework.Entities.ClientClaim>(MemberList.Destination);
             Mapper.CreateMap<ClientSecret, IdentityServer.EntityFramework.Entities.ClientSecret>(MemberList.Destination);
+            Mapper.CreateMap<ClientCorsOrigin, IdentityServer.EntityFramework.Entities.ClientCorsOrigin>(MemberList.Destination);
         }
 
         public static Scope ToModel(this IdentityServer.EntityFramework.Entities.Scope scope)
@@ -110,6 +112,16 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         public static IdentityServer.EntityFramework.Entities.ClientSecret ToEntity(this ClientSecret clientSecret)
         {
             return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientSecret>(clientSecret);
+        }
+
+        public static ClientCorsOrigin ToModel(this IdentityServer.EntityFramework.Entities.ClientCorsOrigin clientCorsOrigin)
+        {
+            return Mapper.Map<ClientCorsOrigin>(clientCorsOrigin);
+        }
+
+        public static IdentityServer.EntityFramework.Entities.ClientCorsOrigin ToEntity(this ClientCorsOrigin clientCorsOrigin)
+        {
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientCorsOrigin>(clientCorsOrigin);
         }
     }
 }
