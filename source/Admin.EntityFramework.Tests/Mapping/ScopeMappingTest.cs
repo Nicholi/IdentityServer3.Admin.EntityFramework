@@ -19,13 +19,13 @@ namespace Admin.EntityFramework.Tests.Mapping
             efScope.Description.Should().BeNull();
             efScope.DisplayName.Should().BeNull();
             efScope.Emphasize.Should().BeFalse();
-            efScope.Enabled.Should().BeFalse();
+            efScope.Enabled.Should().BeTrue();
             efScope.Id.Should().Be(0);
             efScope.IncludeAllClaimsForUser.Should().BeFalse();
             efScope.Name.Should().BeNull();
             efScope.Required.Should().BeFalse();
             efScope.ScopeClaims.Should().BeNullOrEmpty();
-            efScope.ShowInDiscoveryDocument.Should().BeFalse();
+            efScope.ShowInDiscoveryDocument.Should().BeTrue();
             efScope.Type.Should().Be(0);
         }
 
