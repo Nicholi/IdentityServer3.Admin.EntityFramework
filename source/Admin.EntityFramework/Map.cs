@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
-using ClientScopeRestriction = Thinktecture.IdentityServer.EntityFramework.Entities.ClientScopeRestriction;
-using ScopeClaim = Thinktecture.IdentityServer.EntityFramework.Entities.ScopeClaim;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 
 namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
@@ -10,10 +8,10 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         static Map()
         {
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.Scope, Scope>(MemberList.Destination);
-            Mapper.CreateMap<ScopeClaim, WebApi.Models.Storage.ScopeClaim>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ScopeClaim, ScopeClaim>(MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.Client, Client>(MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientRedirectUri, ClientRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<ClientScopeRestriction, WebApi.Models.Storage.ClientScopeRestriction>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri, ClientPostLogoutRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientIdPRestriction, ClientIdPRestriction>(MemberList.Destination);
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction, ClientGrantTypeRestriction>(
@@ -22,10 +20,10 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
             Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientSecret, ClientSecret>(MemberList.Destination);
 
             Mapper.CreateMap<Scope, IdentityServer.EntityFramework.Entities.Scope>(MemberList.Destination);
-            Mapper.CreateMap<WebApi.Models.Storage.ScopeClaim, ScopeClaim>(MemberList.Destination);
+            Mapper.CreateMap<ScopeClaim, IdentityServer.EntityFramework.Entities.ScopeClaim>(MemberList.Destination);
             Mapper.CreateMap<Client, IdentityServer.EntityFramework.Entities.Client>(MemberList.Destination);
             Mapper.CreateMap<ClientRedirectUri, IdentityServer.EntityFramework.Entities.ClientRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<WebApi.Models.Storage.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
+            Mapper.CreateMap<ClientScopeRestriction, IdentityServer.EntityFramework.Entities.ClientScopeRestriction>(MemberList.Destination);
             Mapper.CreateMap<ClientPostLogoutRedirectUri, IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri>(MemberList.Destination);
             Mapper.CreateMap<ClientIdPRestriction, IdentityServer.EntityFramework.Entities.ClientIdPRestriction>(MemberList.Destination);
             Mapper.CreateMap<ClientGrantTypeRestriction, IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction>(

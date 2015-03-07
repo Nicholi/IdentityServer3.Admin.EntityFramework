@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Persistence;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models;
 
 namespace Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions
 {

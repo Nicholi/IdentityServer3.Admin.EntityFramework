@@ -2,10 +2,10 @@
 using System.Linq;
 using RefactorThis.GraphDiff;
 using Thinktecture.IdentityServer.EntityFramework;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Persistence;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
-using Thinktecture.IdentityServer3.Admin.WebApi.Storage;
 using Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions;
+using Thinktecture.IdentityServer3.Admin.Persistence;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 
 namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
