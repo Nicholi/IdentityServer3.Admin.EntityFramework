@@ -110,5 +110,13 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 return count;
             }
         }
+
+        public bool IsNameAvailable(Client entity)
+        {
+            using (var context = new ClientConfigurationDbContext(_connectionString))
+            {
+                return !context.Clients.Any(c => c.ClientId == entity.ClientId && c.Id != entity.Id);
+            }
+        }
     }
 }

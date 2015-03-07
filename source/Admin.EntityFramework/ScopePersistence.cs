@@ -102,5 +102,13 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 return count;
             }
         }
+
+        public bool IsNameAvailable(Scope entity)
+        {
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
+            {
+                return !context.Scopes.Any(s => s.Name == entity.Name && s.Id != entity.Id);
+            }
+        }
     }
 }
