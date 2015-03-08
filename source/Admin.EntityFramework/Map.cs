@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
-using ClientScopeRestriction = Thinktecture.IdentityServer.Core.EntityFramework.Entities.ClientScopeRestriction;
-using ScopeClaim = Thinktecture.IdentityServer.Core.EntityFramework.Entities.ScopeClaim;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 
 namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
@@ -9,97 +7,121 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
     {
         static Map()
         {
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.Scope, Scope>(MemberList.Destination);
-            Mapper.CreateMap<ScopeClaim, WebApi.Models.Storage.ScopeClaim>(MemberList.Destination);
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.Client, Client>(MemberList.Destination);
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.ClientRedirectUri, ClientRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<ClientScopeRestriction, WebApi.Models.Storage.ClientScopeRestriction>(MemberList.Destination);
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.ClientPostLogoutRedirectUri, ClientPostLogoutRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.ClientIdPRestriction, ClientIdPRestriction>(MemberList.Destination);
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.ClientGrantTypeRestriction, ClientGrantTypeRestriction>(
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.Scope, Scope>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ScopeClaim, ScopeClaim>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.Client, Client>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientRedirectUri, ClientRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri, ClientPostLogoutRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientIdPRestriction, ClientIdPRestriction>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction, ClientGrantTypeRestriction>(
                 MemberList.Destination);
-            Mapper.CreateMap<IdentityServer.Core.EntityFramework.Entities.ClientClaim, ClientClaim>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientClaim, ClientClaim>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientSecret, ClientSecret>(MemberList.Destination);
+            Mapper.CreateMap<IdentityServer.EntityFramework.Entities.ClientCorsOrigin, ClientCorsOrigin>(MemberList.Destination);
 
-            Mapper.CreateMap<Scope, IdentityServer.Core.EntityFramework.Entities.Scope>(MemberList.Destination);
-            Mapper.CreateMap<WebApi.Models.Storage.ScopeClaim, ScopeClaim>(MemberList.Destination);
-            Mapper.CreateMap<Client, IdentityServer.Core.EntityFramework.Entities.Client>(MemberList.Destination);
-            Mapper.CreateMap<ClientRedirectUri, IdentityServer.Core.EntityFramework.Entities.ClientRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<WebApi.Models.Storage.ClientScopeRestriction, ClientScopeRestriction>(MemberList.Destination);
-            Mapper.CreateMap<ClientPostLogoutRedirectUri, IdentityServer.Core.EntityFramework.Entities.ClientPostLogoutRedirectUri>(MemberList.Destination);
-            Mapper.CreateMap<ClientIdPRestriction, IdentityServer.Core.EntityFramework.Entities.ClientIdPRestriction>(MemberList.Destination);
-            Mapper.CreateMap<ClientGrantTypeRestriction, IdentityServer.Core.EntityFramework.Entities.ClientGrantTypeRestriction>(
+            Mapper.CreateMap<Scope, IdentityServer.EntityFramework.Entities.Scope>(MemberList.Destination);
+            Mapper.CreateMap<ScopeClaim, IdentityServer.EntityFramework.Entities.ScopeClaim>(MemberList.Destination);
+            Mapper.CreateMap<Client, IdentityServer.EntityFramework.Entities.Client>(MemberList.Destination);
+            Mapper.CreateMap<ClientRedirectUri, IdentityServer.EntityFramework.Entities.ClientRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<ClientScopeRestriction, IdentityServer.EntityFramework.Entities.ClientScopeRestriction>(MemberList.Destination);
+            Mapper.CreateMap<ClientPostLogoutRedirectUri, IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri>(MemberList.Destination);
+            Mapper.CreateMap<ClientIdPRestriction, IdentityServer.EntityFramework.Entities.ClientIdPRestriction>(MemberList.Destination);
+            Mapper.CreateMap<ClientGrantTypeRestriction, IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction>(
                 MemberList.Destination);
-            Mapper.CreateMap<ClientClaim, IdentityServer.Core.EntityFramework.Entities.ClientClaim>(MemberList.Destination);
+            Mapper.CreateMap<ClientClaim, IdentityServer.EntityFramework.Entities.ClientClaim>(MemberList.Destination);
+            Mapper.CreateMap<ClientSecret, IdentityServer.EntityFramework.Entities.ClientSecret>(MemberList.Destination);
+            Mapper.CreateMap<ClientCorsOrigin, IdentityServer.EntityFramework.Entities.ClientCorsOrigin>(MemberList.Destination);
         }
 
-        public static Scope ToModel(this IdentityServer.Core.EntityFramework.Entities.Scope scope)
+        public static Scope ToModel(this IdentityServer.EntityFramework.Entities.Scope scope)
         {
             return Mapper.Map<Scope>(scope);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.Scope ToEntity(this Scope scope)
+        public static IdentityServer.EntityFramework.Entities.Scope ToEntity(this Scope scope)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.Scope>(scope);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.Scope>(scope);
         }
 
-        public static Client ToModel(this IdentityServer.Core.EntityFramework.Entities.Client client)
+        public static Client ToModel(this IdentityServer.EntityFramework.Entities.Client client)
         {
             return Mapper.Map<Client>(client);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.Client ToEntity(this Client client)
+        public static IdentityServer.EntityFramework.Entities.Client ToEntity(this Client client)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.Client>(client);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.Client>(client);
         }
 
-        public static ClientRedirectUri ToModel(this IdentityServer.Core.EntityFramework.Entities.ClientRedirectUri clientRedirectUri)
+        public static ClientRedirectUri ToModel(this IdentityServer.EntityFramework.Entities.ClientRedirectUri clientRedirectUri)
         {
             return Mapper.Map<ClientRedirectUri>(clientRedirectUri);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.ClientRedirectUri ToEntity(this ClientRedirectUri clientRedirectUri)
+        public static IdentityServer.EntityFramework.Entities.ClientRedirectUri ToEntity(this ClientRedirectUri clientRedirectUri)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.ClientRedirectUri>(clientRedirectUri);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientRedirectUri>(clientRedirectUri);
         }
 
-        public static ClientPostLogoutRedirectUri ToModel(this IdentityServer.Core.EntityFramework.Entities.ClientPostLogoutRedirectUri postLogoutRedirectUri)
+        public static ClientPostLogoutRedirectUri ToModel(this IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri postLogoutRedirectUri)
         {
             return Mapper.Map<ClientPostLogoutRedirectUri>(postLogoutRedirectUri);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.ClientPostLogoutRedirectUri ToEntity(this ClientPostLogoutRedirectUri postLogoutRedirectUri)
+        public static IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri ToEntity(this ClientPostLogoutRedirectUri postLogoutRedirectUri)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.ClientPostLogoutRedirectUri>(postLogoutRedirectUri);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri>(postLogoutRedirectUri);
         }
 
-        public static ClientIdPRestriction ToModel(this IdentityServer.Core.EntityFramework.Entities.ClientIdPRestriction identityProviderRestriction)
+        public static ClientIdPRestriction ToModel(this IdentityServer.EntityFramework.Entities.ClientIdPRestriction identityProviderRestriction)
         {
             return Mapper.Map<ClientIdPRestriction>(identityProviderRestriction);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.ClientIdPRestriction ToEntity(this ClientIdPRestriction identityProviderRestriction)
+        public static IdentityServer.EntityFramework.Entities.ClientIdPRestriction ToEntity(this ClientIdPRestriction identityProviderRestriction)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.ClientIdPRestriction>(identityProviderRestriction);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientIdPRestriction>(identityProviderRestriction);
         }
 
-        public static ClientGrantTypeRestriction ToModel(this IdentityServer.Core.EntityFramework.Entities.ClientGrantTypeRestriction clientGrantTypeRestriction)
+        public static ClientGrantTypeRestriction ToModel(this IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction clientGrantTypeRestriction)
         {
             return Mapper.Map<ClientGrantTypeRestriction>(clientGrantTypeRestriction);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.ClientGrantTypeRestriction ToEntity(this ClientGrantTypeRestriction clientGrantTypeRestriction)
+        public static IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction ToEntity(this ClientGrantTypeRestriction clientGrantTypeRestriction)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.ClientGrantTypeRestriction>(clientGrantTypeRestriction);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientGrantTypeRestriction>(clientGrantTypeRestriction);
         }
 
-        public static ClientClaim ToModel(this IdentityServer.Core.EntityFramework.Entities.ClientClaim clientClaim)
+        public static ClientClaim ToModel(this IdentityServer.EntityFramework.Entities.ClientClaim clientClaim)
         {
             return Mapper.Map<ClientClaim>(clientClaim);
         }
 
-        public static IdentityServer.Core.EntityFramework.Entities.ClientClaim ToEntity(this ClientClaim clientClaim)
+        public static IdentityServer.EntityFramework.Entities.ClientClaim ToEntity(this ClientClaim clientClaim)
         {
-            return Mapper.Map<IdentityServer.Core.EntityFramework.Entities.ClientClaim>(clientClaim);
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientClaim>(clientClaim);
+        }
+
+        public static ClientSecret ToModel(this IdentityServer.EntityFramework.Entities.ClientSecret clientSecret)
+        {
+            return Mapper.Map<ClientSecret>(clientSecret);
+        }
+
+        public static IdentityServer.EntityFramework.Entities.ClientSecret ToEntity(this ClientSecret clientSecret)
+        {
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientSecret>(clientSecret);
+        }
+
+        public static ClientCorsOrigin ToModel(this IdentityServer.EntityFramework.Entities.ClientCorsOrigin clientCorsOrigin)
+        {
+            return Mapper.Map<ClientCorsOrigin>(clientCorsOrigin);
+        }
+
+        public static IdentityServer.EntityFramework.Entities.ClientCorsOrigin ToEntity(this ClientCorsOrigin clientCorsOrigin)
+        {
+            return Mapper.Map<IdentityServer.EntityFramework.Entities.ClientCorsOrigin>(clientCorsOrigin);
         }
     }
 }

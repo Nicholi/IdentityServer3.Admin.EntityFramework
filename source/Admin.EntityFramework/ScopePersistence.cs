@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using RefactorThis.GraphDiff;
-using Thinktecture.IdentityServer.Core.EntityFramework;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Persistence;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
-using Thinktecture.IdentityServer3.Admin.WebApi.Storage;
+using Thinktecture.IdentityServer.EntityFramework;
 using Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions;
+using Thinktecture.IdentityServer3.Admin.Persistence;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 
 namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
@@ -22,7 +22,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var scopesQuery = (IQueryable<IdentityServer.Core.EntityFramework.Entities.Scope>) context.Scopes
+                var scopesQuery = (IQueryable<IdentityServer.EntityFramework.Entities.Scope>) context.Scopes
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var entity = new IdentityServer.Core.EntityFramework.Entities.Scope()
+                var entity = new IdentityServer.EntityFramework.Entities.Scope()
                 {
                     Id = key
                 };
@@ -68,7 +68,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
             }
         }
 
-        public void Add(Scope entity)
+        public object Add(Scope entity)
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
@@ -76,6 +76,8 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 context.Scopes.Add(scope);
 
                 context.SaveChanges();
+
+                return scope.Id;
             }
         }
 
@@ -88,6 +90,24 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 context.UpdateGraph(scope, configuration => configuration.OwnedCollection(p => p.ScopeClaims));
 
                 context.SaveChanges();
+            }
+        }
+
+        public int TotalCount()
+        {
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
+            {
+                var count = context.Scopes.Count();
+
+                return count;
+            }
+        }
+
+        public bool IsNameAvailable(Scope entity)
+        {
+            using (var context = new ScopeConfigurationDbContext(_connectionString))
+            {
+                return !context.Scopes.Any(s => s.Name == entity.Name && s.Id != entity.Id);
             }
         }
     }

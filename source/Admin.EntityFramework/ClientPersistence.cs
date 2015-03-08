@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using RefactorThis.GraphDiff;
-using Thinktecture.IdentityServer.Core.EntityFramework;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Persistence;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
-using Thinktecture.IdentityServer3.Admin.WebApi.Storage;
+using Thinktecture.IdentityServer.EntityFramework;
 using Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions;
+using Thinktecture.IdentityServer3.Admin.Persistence;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 
 namespace Thinktecture.IdentityServer3.Admin.EntityFramework
 {
@@ -22,7 +22,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var clientQuery = (IQueryable<IdentityServer.Core.EntityFramework.Entities.Client>) context.Clients
+                var clientQuery = (IQueryable<IdentityServer.EntityFramework.Entities.Client>) context.Clients
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var entity = new IdentityServer.Core.EntityFramework.Entities.Client()
+                var entity = new IdentityServer.EntityFramework.Entities.Client()
                 {
                     Id = key
                 };
@@ -68,7 +68,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
             }
         }
 
-        public void Add(Client entity)
+        public object Add(Client entity)
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
@@ -76,6 +76,8 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                 context.Clients.Add(client);
 
                 context.SaveChanges();
+
+                return client.Id;
             }
         }
 
@@ -96,6 +98,24 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
                     .OwnedCollection(c => c.CustomGrantTypeRestrictions));
 
                 context.SaveChanges();
+            }
+        }
+
+        public int TotalCount()
+        {
+            using (var context = new ClientConfigurationDbContext(_connectionString))
+            {
+                var count = context.Clients.Count();
+
+                return count;
+            }
+        }
+
+        public bool IsNameAvailable(Client entity)
+        {
+            using (var context = new ClientConfigurationDbContext(_connectionString))
+            {
+                return !context.Clients.Any(c => c.ClientId == entity.ClientId && c.Id != entity.Id);
             }
         }
     }

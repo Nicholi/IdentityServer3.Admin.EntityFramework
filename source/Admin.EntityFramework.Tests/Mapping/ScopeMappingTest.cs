@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using Thinktecture.IdentityServer3.Admin.WebApi.Models.Storage;
 using Thinktecture.IdentityServer3.Admin.EntityFramework;
+using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 using Xunit;
 
 namespace Admin.EntityFramework.Tests.Mapping
@@ -19,20 +19,20 @@ namespace Admin.EntityFramework.Tests.Mapping
             efScope.Description.Should().BeNull();
             efScope.DisplayName.Should().BeNull();
             efScope.Emphasize.Should().BeFalse();
-            efScope.Enabled.Should().BeFalse();
+            efScope.Enabled.Should().BeTrue();
             efScope.Id.Should().Be(0);
             efScope.IncludeAllClaimsForUser.Should().BeFalse();
             efScope.Name.Should().BeNull();
             efScope.Required.Should().BeFalse();
             efScope.ScopeClaims.Should().BeNullOrEmpty();
-            efScope.ShowInDiscoveryDocument.Should().BeFalse();
+            efScope.ShowInDiscoveryDocument.Should().BeTrue();
             efScope.Type.Should().Be(0);
         }
 
         [Fact]
         public void Maps_empty_entity_framework_scope_to_storage()
         {
-            var efScope = new Thinktecture.IdentityServer.Core.EntityFramework.Entities.Scope();
+            var efScope = new Thinktecture.IdentityServer.EntityFramework.Entities.Scope();
             var storageScope = efScope.ToModel();
 
             storageScope.ClaimsRule.Should().BeNull();
@@ -100,7 +100,7 @@ namespace Admin.EntityFramework.Tests.Mapping
         [Fact]
         public void Maps_entity_framework_scope_to_storage_scope()
         {
-            var efScope = new Thinktecture.IdentityServer.Core.EntityFramework.Entities.Scope()
+            var efScope = new Thinktecture.IdentityServer.EntityFramework.Entities.Scope()
             {
                 Id = 1,
                 Name = "Name",
@@ -111,9 +111,9 @@ namespace Admin.EntityFramework.Tests.Mapping
                 Enabled = true,
                 IncludeAllClaimsForUser = true,
                 Required = true,
-                ScopeClaims  = new List<Thinktecture.IdentityServer.Core.EntityFramework.Entities.ScopeClaim>()
+                ScopeClaims  = new List<Thinktecture.IdentityServer.EntityFramework.Entities.ScopeClaim>()
                 {
-                    new Thinktecture.IdentityServer.Core.EntityFramework.Entities.ScopeClaim()
+                    new Thinktecture.IdentityServer.EntityFramework.Entities.ScopeClaim()
                     {
                         AlwaysIncludeInIdToken = true,
                         Description = "Description",

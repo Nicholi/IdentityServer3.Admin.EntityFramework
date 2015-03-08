@@ -6,10 +6,10 @@
     <title>Thinktecture IdentityServer3 - EntityFramework support for the Admin Service</title>
     <authors>Brock Allen, Dominick Baier, Manuel Rauber, Christian Liebel</authors>
     <owners>Brock Allen, Dominick Baier</owners>
-    <projectUrl>https://github.com/thinktecture/Thinktecture.IdentityServer3.Admin.EntityFramework</projectUrl>
+    <projectUrl>https://github.com/IdentityServer/Thinktecture.IdentityServer3.Admin.EntityFramework</projectUrl>
     <iconUrl>http://www.thinktecture.com/images/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Thinktecture IdentityServer v3 - EntityFramework support for the Admin Service</description>
+    <description>Thinktecture IdentityServer3 - EntityFramework support for the Admin Service</description>
     <copyright>Copyright 2015</copyright>
     <tags>Thinktecture IdentityServer Identity Admin</tags>
   </metadata>
