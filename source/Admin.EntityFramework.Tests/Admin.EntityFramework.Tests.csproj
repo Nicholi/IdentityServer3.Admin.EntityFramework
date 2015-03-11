@@ -112,7 +112,7 @@
     </Reference>
     <Reference Include="Thinktecture.IdentityServer3.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00010\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00013\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="xunit.abstractions">
       <HintPath>..\packages\xunit.abstractions.2.0.0-beta5-build2785\lib\net35\xunit.abstractions.dll</HintPath>

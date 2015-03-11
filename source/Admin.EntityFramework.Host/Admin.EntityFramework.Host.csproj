@@ -84,8 +84,9 @@
     <Reference Include="Thinktecture.IdentityServer3.Admin.Persistence">
       <HintPath>..\packages\Thinktecture.IdentityServer3.Admin.1.2.0-build01069\lib\net45\Thinktecture.IdentityServer3.Admin.Persistence.dll</HintPath>
     </Reference>
-    <Reference Include="Thinktecture.IdentityServer3.EntityFramework">
-      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00010\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityServer3.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00013\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

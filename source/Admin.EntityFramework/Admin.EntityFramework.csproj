@@ -107,7 +107,7 @@
     </Reference>
     <Reference Include="Thinktecture.IdentityServer3.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00010\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00013\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
