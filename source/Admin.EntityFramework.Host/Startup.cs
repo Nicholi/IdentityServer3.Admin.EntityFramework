@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Admin.EntityFramework.Host;
 using Microsoft.Owin;
 using Owin;
+using Thinktecture.IdentityServer3.Admin.Configuration;
 using Thinktecture.IdentityServer3.Admin.EntityFramework;
+using Thinktecture.IdentityServer3.Admin.Storage;
 
 [assembly:OwinStartup(typeof(Startup))]
 namespace Admin.EntityFramework.Host
@@ -15,8 +17,10 @@ namespace Admin.EntityFramework.Host
     {
         public void Configuration(IAppBuilder app)
         {
-            var options = CreateOptions();
-            app.UseThinktectureIdentityServerAdmin(options);
+            app.UseIdentityServerAdmin(new IdentityServerAdminOptions()
+            {
+                StorageOptions = CreateOptions()
+            });
         }
 
         private StorageOptions CreateOptions()

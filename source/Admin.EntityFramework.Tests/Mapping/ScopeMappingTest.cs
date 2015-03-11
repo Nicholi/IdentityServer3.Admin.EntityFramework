@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
+using Thinktecture.IdentityServer.Core.Models;
 using Thinktecture.IdentityServer3.Admin.EntityFramework;
-using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
 using Xunit;
+using Scope = Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage.Scope;
+using ScopeClaim = Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage.ScopeClaim;
 
 namespace Admin.EntityFramework.Tests.Mapping
 {
@@ -26,7 +28,7 @@ namespace Admin.EntityFramework.Tests.Mapping
             efScope.Required.Should().BeFalse();
             efScope.ScopeClaims.Should().BeNullOrEmpty();
             efScope.ShowInDiscoveryDocument.Should().BeTrue();
-            efScope.Type.Should().Be(0);
+            efScope.Type.Should().Be(1);
         }
 
         [Fact]
@@ -46,7 +48,7 @@ namespace Admin.EntityFramework.Tests.Mapping
             storageScope.Required.Should().BeFalse();
             storageScope.ScopeClaims.Should().BeNullOrEmpty();
             storageScope.ShowInDiscoveryDocument.Should().BeFalse();
-            storageScope.Type.Should().Be(0);
+            storageScope.Type.Should().Be(ScopeType.Identity);
         }
 
         [Fact]
@@ -74,7 +76,7 @@ namespace Admin.EntityFramework.Tests.Mapping
                     }
                 },
                 ShowInDiscoveryDocument = true,
-                Type = 1
+                Type = ScopeType.Identity
             };
 
             var efScope = storageScope.ToEntity();
@@ -94,7 +96,7 @@ namespace Admin.EntityFramework.Tests.Mapping
             efScope.ScopeClaims.First().Id.Should().Be(2);
             efScope.ScopeClaims.First().Name.Should().Be("Name");
             efScope.ShowInDiscoveryDocument.Should().BeTrue();
-            efScope.Type.Should().Be(1);
+            efScope.Type.Should().Be(0);
         }
 
         [Fact]
@@ -142,7 +144,7 @@ namespace Admin.EntityFramework.Tests.Mapping
             storageScope.ScopeClaims.First().Id.Should().Be(2);
             storageScope.ScopeClaims.First().Name.Should().Be("Name");
             storageScope.ShowInDiscoveryDocument.Should().BeTrue();
-            storageScope.Type.Should().Be(1);
+            storageScope.Type.Should().Be(ScopeType.Resource);
         }
     }
 }
