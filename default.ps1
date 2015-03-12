@@ -89,6 +89,6 @@ task CreateNuGetPackage -depends Compile {
 	New-Item $dist_directory\lib\net45 -Type Directory
 	copy-item $output_directory\Thinktecture.IdentityServer3.Admin.EntityFramework.* $dist_directory\lib\net45
 
-	copy-item $src_directory\Admin.nuspec $dist_directory
+	copy-item $src_directory\Admin.EntityFramework.nuspec $dist_directory
 	exec { . $nuget_path pack $dist_directory\Admin.EntityFramework.nuspec -BasePath $dist_directory -o $dist_directory -version $packageVersion }
 }
