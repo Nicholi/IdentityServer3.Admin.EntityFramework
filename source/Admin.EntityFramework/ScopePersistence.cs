@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
+using IdentityServer3.Admin.EntityFramework.Extensions;
 using RefactorThis.GraphDiff;
 using Thinktecture.IdentityServer.EntityFramework;
-using Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions;
-using Thinktecture.IdentityServer3.Admin.Persistence;
-using Thinktecture.IdentityServer3.Admin.Persistence.Models;
-using Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage;
+using IdentityServer3.Admin.Persistence;
+using IdentityServer3.Admin.Persistence.Models;
+using IdentityServer3.Admin.Persistence.Models.Storage;
 
-namespace Thinktecture.IdentityServer3.Admin.EntityFramework
+namespace IdentityServer3.Admin.EntityFramework
 {
     public class ScopePersistence : IPersistence<Scope>
     {
@@ -22,7 +22,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var scopesQuery = (IQueryable<IdentityServer.EntityFramework.Entities.Scope>) context.Scopes
+                var scopesQuery = (IQueryable<Thinktecture.IdentityServer.EntityFramework.Entities.Scope>) context.Scopes
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var entity = new IdentityServer.EntityFramework.Entities.Scope()
+                var entity = new Thinktecture.IdentityServer.EntityFramework.Entities.Scope()
                 {
                     Id = key
                 };

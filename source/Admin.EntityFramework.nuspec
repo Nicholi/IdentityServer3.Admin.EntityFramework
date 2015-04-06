@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Thinktecture.IdentityServer3.Admin.EntityFramework</id>
+    <id>IdentityServer3.Admin.EntityFramework</id>
     <version>0.0.0</version>
-    <title>Thinktecture IdentityServer3 - EntityFramework support for the Admin Service</title>
-    <authors>Brock Allen, Dominick Baier, Manuel Rauber, Christian Liebel</authors>
+    <title>IdentityServer3 - EntityFramework support for the Admin Service</title>
+    <authors>Brock Allen, Dominick Baier, Manuel Rauber</authors>
     <owners>Brock Allen, Dominick Baier</owners>
-    <projectUrl>https://github.com/IdentityServer/Thinktecture.IdentityServer3.Admin.EntityFramework</projectUrl>
-    <iconUrl>http://www.thinktecture.com/images/favicon.ico</iconUrl>
+    <projectUrl>https://github.com/IdentityServer/IdentityServer3.Admin.EntityFramework</projectUrl>
+    <iconUrl>https://identityserver.github.io/Documentation/assets/images/icons/IDserver_icon128.jpg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Thinktecture IdentityServer3 - EntityFramework support for the Admin Service</description>
+    <description>IdentityServer3 - EntityFramework support for the Admin Service</description>
     <copyright>Copyright 2015</copyright>
-    <tags>Thinktecture IdentityServer Identity Admin</tags>
+    <tags>IdentityServer Identity Admin</tags>
   </metadata>
 </package>

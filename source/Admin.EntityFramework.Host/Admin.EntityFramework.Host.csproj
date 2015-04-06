@@ -47,6 +47,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="IdentityServer3">
+      <HintPath>..\packages\IdentityServer3.2.0.0-build00019\lib\net45\IdentityServer3.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -75,19 +78,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Thinktecture.IdentityServer3">
-      <HintPath>..\packages\Thinktecture.IdentityServer3.1.3.0-build00165\lib\net45\Thinktecture.IdentityServer3.dll</HintPath>
-    </Reference>
-    <Reference Include="Thinktecture.IdentityServer3.Admin">
-      <HintPath>..\packages\Thinktecture.IdentityServer3.Admin.1.2.0-build01069\lib\net45\Thinktecture.IdentityServer3.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="Thinktecture.IdentityServer3.Admin.Persistence">
-      <HintPath>..\packages\Thinktecture.IdentityServer3.Admin.1.2.0-build01069\lib\net45\Thinktecture.IdentityServer3.Admin.Persistence.dll</HintPath>
-    </Reference>
-    <Reference Include="Thinktecture.IdentityServer3.EntityFramework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityServer3.EntityFramework.1.2.1-build00013\lib\net45\Thinktecture.IdentityServer3.EntityFramework.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />

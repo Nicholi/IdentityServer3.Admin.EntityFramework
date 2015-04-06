@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using Thinktecture.IdentityServer.Core.Models;
-using Thinktecture.IdentityServer3.Admin.EntityFramework;
+using IdentityServer3.Admin.EntityFramework;
+using IdentityServer3.Core.Models;
 using Xunit;
-using Scope = Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage.Scope;
-using ScopeClaim = Thinktecture.IdentityServer3.Admin.Persistence.Models.Storage.ScopeClaim;
+using Scope = IdentityServer3.Admin.Persistence.Models.Storage.Scope;
+using ScopeClaim = IdentityServer3.Admin.Persistence.Models.Storage.ScopeClaim;
 
 namespace Admin.EntityFramework.Tests.Mapping
 {

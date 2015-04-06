@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Thinktecture.IdentityServer3.Admin.Persistence.Models;
+using IdentityServer3.Admin.Persistence.Models;
 
-namespace Thinktecture.IdentityServer3.Admin.EntityFramework.Extensions
+namespace IdentityServer3.Admin.EntityFramework.Extensions
 {
     public static class IQueryableExtensions
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Admin.EntityFramework.Host;
+using IdentityServer3.Admin.EntityFramework;
 using Microsoft.Owin;
 using Owin;
-using Thinktecture.IdentityServer3.Admin.Configuration;
-using Thinktecture.IdentityServer3.Admin.EntityFramework;
-using Thinktecture.IdentityServer3.Admin.Storage;
+using IdentityServer3.Admin.Configuration;
+using IdentityServer3.Admin.Storage;
 
 [assembly:OwinStartup(typeof(Startup))]
 namespace Admin.EntityFramework.Host
