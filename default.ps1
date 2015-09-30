@@ -6,8 +6,8 @@ properties {
 	$sln_file = "$src_directory\Admin.EntityFramework.sln"
 	$target_config = "Release"
 	$framework_version = "v4.5"
-	$xunit_path = "$src_directory\packages\xunit.runner.console.2.0.0-rc4-build2924\tools\xunit.console.exe"
-	$ilmerge_path = "$src_directory\packages\ILMerge.2.13.0307\ILMerge.exe"
+	$xunit_path = "$src_directory\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe"
+	$ilmerge_path = "$src_directory\packages\ILMerge.2.14.1208\ILMerge.exe"
 	$nuget_path = "$src_directory\.nuget\nuget.exe"
 	
 	$buildNumber = 0;
@@ -15,7 +15,7 @@ properties {
 	$preRelease = $null
 }
 
-task default -depends Clean, RunTests, CreateNuGetPackage
+task default -depends Clean, Compile, CreateNuGetPackage
 task appVeyor -depends Clean, CreateNuGetPackage
 
 task Clean {
@@ -29,7 +29,7 @@ task Compile -depends UpdateVersion {
 }
 
 task RunTests -depends Compile {
-	$project = ".Tests"
+	$project = "Admin.EntityFramework.Tests"
 	mkdir $output_directory\xunit\$project -ea SilentlyContinue
 	.$xunit_path "$output_directory\$project.dll" /html "$output_directory\xunit\$project\index.html"
 }

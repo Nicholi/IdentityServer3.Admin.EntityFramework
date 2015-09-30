@@ -2,10 +2,10 @@
 using System.Linq;
 using IdentityServer3.Admin.EntityFramework.Extensions;
 using RefactorThis.GraphDiff;
-using Thinktecture.IdentityServer.EntityFramework;
 using IdentityServer3.Admin.Persistence;
 using IdentityServer3.Admin.Persistence.Models;
 using IdentityServer3.Admin.Persistence.Models.Storage;
+using IdentityServer3.EntityFramework;
 
 namespace IdentityServer3.Admin.EntityFramework
 {
@@ -22,7 +22,7 @@ namespace IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var scopesQuery = (IQueryable<Thinktecture.IdentityServer.EntityFramework.Entities.Scope>) context.Scopes
+                var scopesQuery = (IQueryable<IdentityServer3.EntityFramework.Entities.Scope>) context.Scopes
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ScopeConfigurationDbContext(_connectionString))
             {
-                var entity = new Thinktecture.IdentityServer.EntityFramework.Entities.Scope()
+                var entity = new IdentityServer3.EntityFramework.Entities.Scope()
                 {
                     Id = key
                 };
@@ -87,7 +87,9 @@ namespace IdentityServer3.Admin.EntityFramework
             {
                 var scope = entity.ToEntity();
 
-                context.UpdateGraph(scope, configuration => configuration.OwnedCollection(p => p.ScopeClaims));
+                context.UpdateGraph(scope, configuration => configuration
+                    .OwnedCollection(p => p.ScopeClaims)
+                    );
 
                 context.SaveChanges();
             }

@@ -2,10 +2,10 @@
 using System.Linq;
 using IdentityServer3.Admin.EntityFramework.Extensions;
 using RefactorThis.GraphDiff;
-using Thinktecture.IdentityServer.EntityFramework;
 using IdentityServer3.Admin.Persistence;
 using IdentityServer3.Admin.Persistence.Models;
 using IdentityServer3.Admin.Persistence.Models.Storage;
+using IdentityServer3.EntityFramework;
 
 namespace IdentityServer3.Admin.EntityFramework
 {
@@ -22,7 +22,7 @@ namespace IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var clientQuery = (IQueryable<Thinktecture.IdentityServer.EntityFramework.Entities.Client>) context.Clients
+                var clientQuery = (IQueryable<IdentityServer3.EntityFramework.Entities.Client>) context.Clients
                     .AsNoTracking();
 
                 if (!String.IsNullOrEmpty(pagingInformation.SearchTerm))
@@ -56,7 +56,7 @@ namespace IdentityServer3.Admin.EntityFramework
         {
             using (var context = new ClientConfigurationDbContext(_connectionString))
             {
-                var entity = new Thinktecture.IdentityServer.EntityFramework.Entities.Client()
+                var entity = new IdentityServer3.EntityFramework.Entities.Client()
                 {
                     Id = key
                 };
@@ -88,14 +88,15 @@ namespace IdentityServer3.Admin.EntityFramework
                 var client = entity.ToEntity();
 
                 context.UpdateGraph(client, configuration => configuration
+                    .OwnedCollection(c => c.AllowedCorsOrigins)
+                    .OwnedCollection(c => c.AllowedCustomGrantTypes)
+                    .OwnedCollection(c => c.AllowedScopes)
                     .OwnedCollection(c => c.Claims)
                     .OwnedCollection(c => c.ClientSecrets)
-                    .OwnedCollection(c => c.CustomGrantTypeRestrictions)
                     .OwnedCollection(c => c.IdentityProviderRestrictions)
                     .OwnedCollection(c => c.PostLogoutRedirectUris)
                     .OwnedCollection(c => c.RedirectUris)
-                    .OwnedCollection(c => c.ScopeRestrictions)
-                    .OwnedCollection(c => c.CustomGrantTypeRestrictions));
+                    );
 
                 context.SaveChanges();
             }

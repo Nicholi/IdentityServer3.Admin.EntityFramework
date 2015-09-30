@@ -12,5 +12,8 @@
     <description>IdentityServer3 - EntityFramework support for the Admin Service</description>
     <copyright>Copyright 2015</copyright>
     <tags>IdentityServer Identity Admin</tags>
+    <dependencies>
+      <dependency id="Owin" version="1.0"/>
+    </dependencies>
   </metadata>
 </package>

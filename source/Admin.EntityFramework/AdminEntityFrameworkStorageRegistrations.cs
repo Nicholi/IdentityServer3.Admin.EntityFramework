@@ -1,5 +1,4 @@
-﻿using Thinktecture.IdentityServer.Core.Configuration;
-using IdentityServer3.Admin.Persistence;
+﻿using IdentityServer3.Admin.Persistence;
 using IdentityServer3.Admin.Persistence.Models.Storage;
 using IdentityServer3.Core.Configuration;
 

@@ -34,7 +34,7 @@ namespace Admin.EntityFramework.Tests.Mapping
         [Fact]
         public void Maps_empty_entity_framework_scope_to_storage()
         {
-            var efScope = new Thinktecture.IdentityServer.EntityFramework.Entities.Scope();
+            var efScope = new IdentityServer3.EntityFramework.Entities.Scope();
             var storageScope = efScope.ToModel();
 
             storageScope.ClaimsRule.Should().BeNull();
@@ -102,7 +102,7 @@ namespace Admin.EntityFramework.Tests.Mapping
         [Fact]
         public void Maps_entity_framework_scope_to_storage_scope()
         {
-            var efScope = new Thinktecture.IdentityServer.EntityFramework.Entities.Scope()
+            var efScope = new IdentityServer3.EntityFramework.Entities.Scope()
             {
                 Id = 1,
                 Name = "Name",
@@ -113,9 +113,9 @@ namespace Admin.EntityFramework.Tests.Mapping
                 Enabled = true,
                 IncludeAllClaimsForUser = true,
                 Required = true,
-                ScopeClaims  = new List<Thinktecture.IdentityServer.EntityFramework.Entities.ScopeClaim>()
+                ScopeClaims  = new List<IdentityServer3.EntityFramework.Entities.ScopeClaim>()
                 {
-                    new Thinktecture.IdentityServer.EntityFramework.Entities.ScopeClaim()
+                    new IdentityServer3.EntityFramework.Entities.ScopeClaim()
                     {
                         AlwaysIncludeInIdToken = true,
                         Description = "Description",
